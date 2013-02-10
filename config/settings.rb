@@ -1,11 +1,11 @@
 class Application < Sinatra::Base
   configure do
-    enable :dump_errors
-    enable :logging
     set :views, sass: "public/css", coffee: "public/js", haml: "views", default: "views"
+    set :partial_template_engine, :haml
+    set :haml, format: :html5, escape_attrs: false
   end
 
   configure :production do
-    set :haml, ugly: true
+    set :haml, format: :html5, escape_attrs: false, ugly: true
   end
 end

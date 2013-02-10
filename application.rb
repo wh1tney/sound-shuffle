@@ -1,12 +1,14 @@
 require "sinatra"
+require "sinatra/r18n"
+require "sinatra/partial"
 
 class Application < Sinatra::Base
+  register Sinatra::R18n
+  register Sinatra::Partial
+
   get "/" do
     haml :index, layout: :"layouts/default"
   end
 end
 
-require_relative "config/settings"
-require_relative "config/helpers"
-require_relative "config/routes"
-Application.helpers ApplicationHelpers
+%w(settings helpers routes).each { |f| require_relative "config/#{f}" }
