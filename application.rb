@@ -7,7 +7,7 @@ class Application < Sinatra::Base
   register Sinatra::Partial
 
   get "/" do
-    haml :index, layout: :"layouts/default"
+    haml :index
   end
 end
 
