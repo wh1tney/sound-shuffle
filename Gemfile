@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "sinatra", git: "git://github.com/sinatra/sinatra.git"
+gem "sinatra", github: "sinatra"
 gem "sinatra-r18n"
 gem "sinatra-partial"
 

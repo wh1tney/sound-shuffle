@@ -11,4 +11,4 @@ class Application < Sinatra::Base
   end
 end
 
-%w(settings helpers routes).each { |f| require_relative "config/#{f}" }
+Dir[File.dirname(__FILE__) + "/config/*.rb"].each { |file| require file }
