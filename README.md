@@ -1,9 +1,17 @@
-# Sinatra app skeleton (2014)
+# SoundShuffle
 
-Featuring HAML, SASS, CoffeeScript...and a free Rakefile!
+This app shuffles and plays sounds from a SoundCloud profile page.
 
-To run:
-```
-sudo gem install thin
-thin start
-```
+###Why is this useful?
+Like Twitter, SoundCloud posts operate in a linear fashion. If you are an active SoundCloud user, the amazing Little Dragon track you reposted on Wednesday is at the bottom of your profile by Friday. Recall the good vibes by shuffling your sounds with SoundShuffle.
+
+Happy listening.
+
+
+###Technologies used:
+Sinatra
+HAML/SASS
+CoffeeScript
+Heroku
+SoundCloud API
+[Plangular](https://github.com/jxnblk/plangular)
