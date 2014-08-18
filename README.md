@@ -1,10 +1,9 @@
-sinatra-skeleton-app
-====================
-My Ruby sandbox.
+# Sinatra app skeleton (2014)
 
+Featuring HAML, SASS, CoffeeScript...and a free Rakefile!
+
+To run:
 ```
 sudo gem install thin
-git clone git@github.com:zhuravel/sinatra-skeleton-app.git
-cd sinatra-skeleton-app
 thin start
 ```
