@@ -19,7 +19,7 @@ $(function(){
   function playCallback(e) {
     console.log("Play");
     SC.stream("/tracks/53126096", function(sound){
-      sound.togglePause();
+      sound.play();
     });
   }
 
