@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "sinatra", github: "sinatra"
+gem "sinatra-partial"
 
 gem "thin"
 

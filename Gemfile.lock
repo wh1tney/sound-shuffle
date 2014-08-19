@@ -23,6 +23,8 @@ GEM
     rack-protection (1.5.3)
       rack
     sass (3.4.0)
+    sinatra-partial (0.4.0)
+      sinatra
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -37,4 +39,5 @@ DEPENDENCIES
   haml
   sass
   sinatra!
+  sinatra-partial
   thin
