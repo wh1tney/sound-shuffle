@@ -4,6 +4,7 @@ $(function(){
   function bindEvents() {
     $('#connect').on('click', connectCallback);
     $('#play').on('click', playCallback);
+    $('#fav').on('click', favesCallback);
   };
 
   // Event callbacks
@@ -22,6 +23,13 @@ $(function(){
       sound.play();
     });
   }
+
+  function favesCallback(e) {
+    SC.get("/me/favorites", {}, function(res, err) {
+      console.log(res);
+    });
+  }
+
 
   bindEvents();
 });
