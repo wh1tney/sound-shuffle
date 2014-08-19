@@ -1,11 +1,8 @@
-/*$(function(){
+$(function(){
 
-  console.log("application.js loaded");
-
-  // Event listeners
+  // Event handlers
   function bindEvents() {
     $('#connect').on('click', connectCallback);
-    console.log("binding events");
   };
 
   // Event callbacks
@@ -19,4 +16,4 @@
   }
 
   bindEvents();
-});*/
+});

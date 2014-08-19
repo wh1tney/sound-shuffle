@@ -6,19 +6,12 @@
     = stylesheets
     = javascripts
     %script(src="http://connect.soundcloud.com/sdk.js")
+    %script(src="/js/application.js")
     :javascript
-      console.log("test");
       // initialize client with app credentials
       SC.initialize({
         client_id: '60d45960c3088a13089d6a81752f5929',
         redirect_uri: 'http://0.0.0.0:3000/'
-      });
-
-      // initiate auth popup
-      SC.connect(function() {
-        SC.get('/me', function(me) { 
-          alert('Hello, ' + me.username); 
-        });
       });
   %body
     = yield
