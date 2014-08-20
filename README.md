@@ -8,8 +8,8 @@ Like Twitter, SoundCloud resources are posted linearly. If you are an active Sou
 Happy listening.
 
 ###Tech:
-Sinatra
-HAML/SASS
-AngularJS
-SoundCloud API / JavaScript SDK
-[Plangular](https://github.com/jxnblk/plangular)
+-Sinatra
+-HAML/SASS
+-AngularJS
+-SoundCloud API / JavaScript SDK
+-[Plangular](https://github.com/jxnblk/plangular)
