@@ -1,21 +1,21 @@
 %div{ng: {app: "plangular"}} 
-  %div.media{"data-src" => "http://soundcloud.com/jxnblk/plangular", :plangular => true}
+  %div.media{"data-src" => "https://soundcloud.com/soulection/tom-misch-the-journey", :plangular => true}
     %img.img{"ng-src" => "{{ track.artwork_url }}"}
     .bd
       .media
         %a.img{:href => "", "ng-click" => "player.play(track)", "ng-hide" => "player.playing == track"}
-          %div{"ng-click" => "seekTo($event)"}
-            %img{"ng-src" => "{{ track.waveform_url }}"}/
-          %div{"plangular-icon" => "play"}
+          %div{"plangular-icon" => "play", class: "icon icon-gray"}
         %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
-          %div{"plangular-icon" => "pause"}
+          %div{"plangular-icon" => "pause", class: "icon icon-gray"}
         .bd
           %p {{ track.user.username }}
           %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
-      %small {{ currentTime | playTime }} | {{ duration | playTime }}
+        %small {{ currentTime | playTime }} | {{ duration | playTime }}
 
 
 -#
+  %div{"ng-click" => "seekTo($event)"}
+    %img{"ng-src" => "{{ track.waveform_url }}"}/
   %div{:plangular => true, data: {src: "http://soundcloud.com/deepsounds/nause-head-over-heels-franskild-remix-edmcom-premiere"}}
     %a{href:"", ng: { click: "player.play(track)", hide: "player.playing == track" } }
       %div{plangular: {icon:"play"}}
