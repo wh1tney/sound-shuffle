@@ -1,0 +1,24 @@
+%div.media{"data-src" => "https://soundcloud.com/soulection/tom-misch-the-journey", :plangular => true}
+  %img.img{"ng-src" => "{{ track.artwork_url }}"}
+  .bd
+    .media
+      %a.img{:href => "", "ng-click" => "player.play(track)", "ng-hide" => "player.playing == track"}
+        %div{"plangular-icon" => "play", class: "icon icon-gray"}
+      %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
+        %div{"plangular-icon" => "pause", class: "icon icon-gray"}
+      .bd
+        %p {{ track.user.username }}
+        %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
+      %small {{ currentTime | playTime }} | {{ duration | playTime }}
+
+-#
+  %div{"ng-click" => "seekTo($event)"}
+    %img{"ng-src" => "{{ track.waveform_url }}"}/
+
+  %div{ng: {app: "plangular"}} 
+    %div{:plangular => true, data: {src: "http://soundcloud.com/deepsounds/nause-head-over-heels-franskild-remix-edmcom-premiere"}}
+      %a{href:"", ng: { click: "player.play(track)", hide: "player.playing == track" } }
+        %div{plangular: {icon:"play"}}
+      %a{href:"", ng: { click: "player.pause()", show: "player.playing == track" } }
+        %div{plangular: {icon:"pause"}}
+      %p {{ track.user.username }} - {{ track.title }}
