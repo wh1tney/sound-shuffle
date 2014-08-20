@@ -3,7 +3,7 @@ $(function(){
   // Event handlers
   function bindEvents() {
     $('#connect').on('click', connectCallback);
-    $('#play').on('click', playCallback);
+    $('.media').on('click', mediaCallback);
   };
 
   // Event callbacks
@@ -17,9 +17,10 @@ $(function(){
     });
   };
 
-  function playCallback(e) {
-    var track = "/tracks/53126096";
-    SC.stream(track, playSound);
+  function mediaCallback(e) {
+    if( e.target && e.target.id == "play" ) {
+      playSound();
+    }
   };
 
   function getFavorites() {
@@ -27,8 +28,11 @@ $(function(){
   };
 
   // SC callbacks
-  function playSound(sound){
-    sound.play();
+  function playSound(){
+    var track = "/tracks/53126096";
+    SC.stream(track, function(sound) {
+      sound.play();
+    });
   }; 
 
   function favoritesCallback(res, err) {
@@ -39,8 +43,7 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
-//      console.log(response);
-      $('body').append("<img src="+response[0].waveform_url+" />")
+        $('.media').append("<button id='play'>Play</button>")
     }).fail(function() {
       console.log("ajax fail");
     });
