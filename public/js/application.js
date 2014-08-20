@@ -13,9 +13,7 @@ $(function(){
   // ----- EVENT CALLBACKS
 
   function connectCallback(e) {
-      console.log("connecting");
     if(e.target && e.target.id == "conn") {
-
       // initiate auth popup
       SC.connect(function() {
         SC.get('/me', function(user) { 
@@ -39,15 +37,16 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
-        arrangeButtons();
+        arrangeViews();
         processTracks(response);
     }).fail(function() {
       console.log("ajax fail");
     });
   };
 
-  function arrangeButtons() {
+  function arrangeViews() {
     $('#conn').remove();
+    $('#player').css('display', 'initial');
   }
 
   function processTracks(tracks) {
