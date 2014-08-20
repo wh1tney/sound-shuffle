@@ -1,7 +1,10 @@
-%h1 ❤︎ SoundShuffle 
-%h2 Listen to a mix of your SoundCloud favorites.
+%section
+  %h1 ❤︎ SoundShuffle 
 
-%div
-  %button{id: "conn"} Connect To SoundCloud
+%section
+  %h2 Listen to a mix of your SoundCloud favorites.
 
-= haml :'partials/player', :layout => false
+  %div
+    %button{id: "conn"} Connect To SoundCloud
+
+  = haml :'partials/player', :layout => false
