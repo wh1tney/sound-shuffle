@@ -15,21 +15,35 @@ $(function(){
         alert('Hello, ' + user.username); 
       });
     });
-  }
+  };
 
   function playCallback(e) {
-    console.log("Play");
-    SC.stream("/tracks/53126096", function(sound){
-      sound.play();
-    });
-  }
+    var track = "/tracks/53126096";
+    SC.stream(track, playSound);
+  };
 
   function favesCallback(e) {
-    SC.get("/me/favorites", {}, function(res, err) {
-      console.log(res);
-    });
-  }
+    SC.get("/me/favorites", {}, getFavoriteTracks);
+  };
 
+  // SC callbacks
+  function playSound(sound){
+    sound.play();
+  }; 
+
+  function getFavoriteTracks(res, err) {
+    // console.log(res);
+    $.ajax({
+      type: "POST",
+      url: "/favorites",
+      data: {'faves': res},
+      dataType: 'json'
+    }).done(function(response) {
+      console.log(response);
+    }).fail(function() {
+      console.log("ajax fail");
+    });
+  };
 
   bindEvents();
 });
