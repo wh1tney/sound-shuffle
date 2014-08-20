@@ -4,7 +4,6 @@ $(function(){
   function bindEvents() {
     $('#connect').on('click', connectCallback);
     $('#play').on('click', playCallback);
-    $('#fav').on('click', favesCallback);
   };
 
   // Event callbacks
@@ -12,7 +11,8 @@ $(function(){
     // initiate auth popup
     SC.connect(function() {
       SC.get('/me', function(user) { 
-        alert('Hello, ' + user.username); 
+        // TODO: do something with user.username
+        getFavorites();
       });
     });
   };
@@ -22,8 +22,8 @@ $(function(){
     SC.stream(track, playSound);
   };
 
-  function favesCallback(e) {
-    SC.get("/me/favorites", {}, getFavoriteTracks);
+  function getFavorites() {
+    SC.get("/me/favorites", {}, favoritesCallback);
   };
 
   // SC callbacks
@@ -31,7 +31,7 @@ $(function(){
     sound.play();
   }; 
 
-  function getFavoriteTracks(res, err) {
+  function favoritesCallback(res, err) {
     // console.log(res);
     $.ajax({
       type: "POST",
@@ -39,7 +39,8 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
-      console.log(response);
+//      console.log(response);
+      $('body').append("<img src="+response[0].waveform_url+" />")
     }).fail(function() {
       console.log("ajax fail");
     });
