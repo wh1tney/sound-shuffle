@@ -6,13 +6,15 @@ $(function(){
 
   function bindEvents() {
     $('#connect').on('click', connectCallback);
-    $('.media').on('click', mediaCallback);
+    // media callback not used (using Plangular for playback)
+    // $('.media').on('click', mediaCallback);
   };
 
   // ----- EVENT CALLBACKS
 
   function connectCallback(e) {
     // initiate auth popup
+    console.log("connecting");
     SC.connect(function() {
       SC.get('/me', function(user) { 
         // TODO: do something with user.username
@@ -55,7 +57,7 @@ $(function(){
   };
 
   function arrangeButtons() {
-    $('.media').append("<button id='play'>Play</button>")
+    // $('.media').append("<button id='play'>Play</button>")
     $('#connect').remove();
   }
 
