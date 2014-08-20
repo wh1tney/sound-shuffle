@@ -8,16 +8,13 @@ class Application < Sinatra::Base
 
   post "/favorites" do
     content_type :json
-        
-    track = params['faves']['0']
+    tracks = []
 
-    p "#{track["id"]}\n#{track["title"]}\n#{track["user"]["username"]}\n#{track["artwork_url"]}\n#{track["waveform_url"]}"
-        
     params['faves'].each do |track_idx, info|
-      track = Track.create(track_id: info["id"], )
+      tracks << Track.create(track_id:info["id"], title:info["title"], user:info["user"]["username"], artwork_url:info["artwork_url"], waveform_url:info["waveform_url"])
     end
 
-    params.to_json
+    tracks.to_json
   end
 end
 
