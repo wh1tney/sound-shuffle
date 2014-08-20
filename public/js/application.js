@@ -1,5 +1,7 @@
 $(function(){
 
+  var nextTrackId = null;
+
   // ----- EVENT HANDLERS
 
   function bindEvents() {
@@ -31,9 +33,8 @@ $(function(){
     SC.get("/me/favorites", {}, saveFavorites);
   };
 
-
   function playSound(){
-    var track = "/tracks/53126096";
+    var track = "/tracks/" + nextTrackId;
     SC.stream(track, function(sound) {
       sound.play();
     });
@@ -46,15 +47,20 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
+        arrangeButtons();
         processTracks(response);
     }).fail(function() {
       console.log("ajax fail");
     });
   };
 
-  function processTracks(tracks) {
+  function arrangeButtons() {
     $('.media').append("<button id='play'>Play</button>")
     $('#connect').remove();
+  }
+
+  function processTracks(tracks) {
+    nextTrackId = tracks["0"].track_id;
   }
 
   bindEvents();
