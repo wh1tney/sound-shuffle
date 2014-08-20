@@ -6,6 +6,8 @@
         %div{"plangular-icon" => "play", class: "icon icon-gray"}
       %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
         %div{"plangular-icon" => "pause", class: "icon icon-gray"}
+      %a.img{:href => "", "ng-click" => "player.next()"}
+        %div{"plangular-icon" => "next", class: "icon icon-gray"}
       .bd
         %p {{ track.user.username }}
         %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}

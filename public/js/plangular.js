@@ -113,11 +113,10 @@ plangular.directive('plangular', function ($document, $rootScope, $http) {
         }, false);
 
         // Handle click events for seeking
-/*        scope.seekTo = function($event){
+        scope.seekTo = function($event){
           var xpos = $event.offsetX / $event.target.offsetWidth;
           audio.currentTime = (xpos * audio.duration);
         };
-*/
       }
     }
   });
