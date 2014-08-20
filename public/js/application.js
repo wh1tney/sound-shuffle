@@ -7,27 +7,22 @@ $(function(){
   // ----- EVENT HANDLERS
 
   function bindEvents() {
-    $('#connect').on('click', connectCallback);
-    // media callback not used (using Plangular for playback)
-    // $('.media').on('click', mediaCallback);
+    $('#conn').on('click', connectCallback);
   };
 
   // ----- EVENT CALLBACKS
 
   function connectCallback(e) {
-    // initiate auth popup
-    console.log("connecting");
-    SC.connect(function() {
-      SC.get('/me', function(user) { 
-        // TODO: do something with user.username
-        getFavorites();
-      });
-    });
-  };
+      console.log("connecting");
+    if(e.target && e.target.id == "conn") {
 
-  function mediaCallback(e) {
-    if( e.target && e.target.id == "play" ) {
-      playSound();
+      // initiate auth popup
+      SC.connect(function() {
+        SC.get('/me', function(user) { 
+          // TODO: do something with user.username
+          getFavorites();
+        });
+      });
     }
   };
 
@@ -36,13 +31,6 @@ $(function(){
   function getFavorites() {
     SC.get("/me/favorites", {}, saveFavorites);
   };
-
-  function playSound(){
-    var track = "/tracks/" + nextTrackId;
-    SC.stream(track, function(sound) {
-      sound.play();
-    });
-  }; 
 
   function saveFavorites(res, err) {
     $.ajax({
@@ -59,8 +47,7 @@ $(function(){
   };
 
   function arrangeButtons() {
-    // $('.media').append("<button id='play'>Play</button>")
-    $('#connect').remove();
+    $('#conn').remove();
   }
 
   function processTracks(tracks) {
