@@ -37,20 +37,22 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
+        loadPlayer(response);
         arrangeViews();
-        processTracks(response);
     }).fail(function() {
-      console.log("ajax fail");
+        console.log("ajax fail");
     });
   };
 
   function arrangeViews() {
     $('#conn').remove();
-    $('#player').css('display', 'initial');
   }
 
-  function processTracks(tracks) {
-    nextTrackId = tracks["0"].track_id;
+  function loadPlayer(tracks) {
+    // nextTrackId = tracks["0"].track_id;
+    // nextTrackId = "https://soundcloud.com/fwdslxsh/yellow";
+    // $('#player').attr("data-src", nextTrackId);
+    $('#player').css('display', 'initial');
   }
 
   bindEvents();
