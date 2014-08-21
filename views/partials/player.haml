@@ -1,14 +1,15 @@
-%div.media{style: "display: none;", id: "player", "data-src" => "https://soundcloud.com/soulection/tom-misch-the-journey", :plangular => true}
-  %img.img{"ng-src" => "{{ track.artwork_url }}"}
-  .bd
-    .media
-      %a.img{:href => "", "ng-click" => "player.play(track)", "ng-hide" => "player.playing == track"}
-        %div{"plangular-icon" => "play", class: "icon icon-gray"}
-      %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
-        %div{"plangular-icon" => "pause", class: "icon icon-gray"}
-      %a.img{:href => "", "ng-click" => "player.next()"}
-        %div{"plangular-icon" => "next", class: "icon icon-gray"}
-      .bd
-        %p {{ track.user.username }}
-        %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
-      %small {{ currentTime | playTime }} | {{ duration | playTime }}
+%div{ng: {controller: "tracksController"}}
+  %div.media{:plangular=>true, style: "display: none;", id: "player", "data-src" => "https://soundcloud.com/soulection/tom-misch-the-journey" }
+    %img.img{"ng-src" => "{{ track.artwork_url }}"}
+    .bd
+      .media
+        %a.img{:href => "", "ng-click" => "player.play(track)", "ng-hide" => "player.playing == track"}
+          %div{"plangular-icon" => "play", class: "icon icon-gray"}
+        %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
+          %div{"plangular-icon" => "pause", class: "icon icon-gray"}
+        %a.img{:href => "", "ng-click" => "player.next()"}
+          %div{"plangular-icon" => "next", class: "icon icon-gray"}
+        .bd
+          %p {{ track.user.username }}
+          %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
+        %small {{ currentTime | playTime }} | {{ duration | playTime }}
