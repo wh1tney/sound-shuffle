@@ -1,10 +1,15 @@
 %section
   %h1 ❤︎ SoundShuffle 
 
-%section
+%section{ng: {controller: "tracksController"}}
   %h2 Listen to a mix of your SoundCloud favorites.
 
   %div
     %button{id: "conn"} Connect To SoundCloud
 
+    %table
+      %tr{"ng-repeat" => "song in tracksList"}
+        %td {{song.url}}
+
   = haml :'partials/player', :layout => false
+

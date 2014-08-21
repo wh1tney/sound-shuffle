@@ -50,7 +50,6 @@ $(function(){
 
   function loadPlayer(tracks) {
     // nextTrackId = tracks["0"].track_id;
-    // nextTrackId = "https://soundcloud.com/fwdslxsh/yellow";
     // $('#player').attr("data-src", nextTrackId);
     $('#player').css('display', 'initial');
   }
