@@ -1,6 +1,6 @@
 %div{ng: {controller: "tracksController"}}
   %div.media{:plangular=>true, style: "display: none;", id: "player", "data-src" => "https://soundcloud.com/soulection/tom-misch-the-journey" }
-    %img.img{"ng-src" => "{{ track.artwork_url }}"}
+    %img.img{"ng-src" => "{{ track.artwork_url }}", class: "img-circle"}
     .bd
       .media
         %a.img{:href => "", "ng-click" => "player.play(track)", "ng-hide" => "player.playing == track"}

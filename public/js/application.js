@@ -45,7 +45,7 @@ $(function(){
   };
 
   function arrangeViews() {
-    $('#conn').remove();
+    $('#top').remove();
   }
 
   function loadPlayer(tracks) {
