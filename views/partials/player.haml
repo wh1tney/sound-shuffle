@@ -1,7 +1,7 @@
 %div{ng: {controller: "tracksController"}}
   %div{ng: {repeat: "track in tracks"}, class: "sound-block"}
     %div{ng: {repeat: "url in track.src track by $index"} }
-      %div.media{:plangular=>true, style: "display: none;", class: "player", "data-src" => "{{ url }}"}
+      %div.media{:plangular=>true, class: "player", "data-src" => "{{ url }}"}
         %img.img{"ng-src" => "{{ track.artwork_url }}", class: "img-circle"}
         .bd
           .media
