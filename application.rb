@@ -6,16 +6,21 @@ class Application < Sinatra::Base
     haml :index
   end
 
+  get "/favorites" do
+    tracks = Track.all
+    haml :'partials/player', locals: {tracks: tracks}
+  end
+
   post "/favorites" do
     content_type :json
-    tracks = []
 
     params['faves'].each do |track_idx, info|
-      tracks << Track.create(src:info["permalink_url"])
-   end
+      Track.create(src:info["permalink_url"])
+    end
 
-    tracks.to_json
+    200.to_json
   end
+
 end
 
 Dir[File.dirname(__FILE__) + "/config/*.rb"].each { |file| require file }
