@@ -17,7 +17,7 @@ $(function(){
       // initiate auth popup
       SC.connect(function() {
         SC.get('/me', function(user) { 
-          // TODO: do something with user.username
+          alert("Hello, " + user.username + "!");
           getFavorites();
         });
       });

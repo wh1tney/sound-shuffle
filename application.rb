@@ -11,8 +11,8 @@ class Application < Sinatra::Base
     tracks = []
 
     params['faves'].each do |track_idx, info|
-      tracks << Track.create(track_id:info["id"], title:info["title"], user:info["user"]["username"], artwork_url:info["artwork_url"], waveform_url:info["waveform_url"])
-    end
+      tracks << Track.create(src:info["permalink_url"])
+   end
 
     tracks.to_json
   end

@@ -1,6 +1,8 @@
+'use strict';
+
 var plangularController = angular.module('plangular'); 
 
-plangularController.controller('tracksController', function($scope, $sce) {
+plangularController.controller('tracksController', function($scope) {
 
   $scope.tracks = [
     {
