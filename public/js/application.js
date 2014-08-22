@@ -50,8 +50,8 @@ $(function(){
 
   function loadPlayer(tracks) {
     // nextTrackId = tracks["0"].track_id;
-    // $('#player').attr("data-src", nextTrackId);
-    $('#player').css('display', 'initial');
+    // $('.player').attr("data-src", nextTrackId);
+    $('.player').css('display', 'initial');
   }
 
   bindEvents();

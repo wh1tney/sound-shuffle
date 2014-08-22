@@ -1,7 +1,7 @@
 %div{ng: {controller: "tracksController"}}
-  %div{ng: {repeat: "track in tracks"} }
+  %div{ng: {repeat: "track in tracks"}, class: "sound-block"}
     %div{ng: {repeat: "url in track.src track by $index"} }
-      %div.media{:plangular=>true, style: "display: none;", id: "player", "data-src" => "{{ url }}"}
+      %div.media{:plangular=>true, style: "display: none;", class: "player", "data-src" => "{{ url }}"}
         %img.img{"ng-src" => "{{ track.artwork_url }}", class: "img-circle"}
         .bd
           .media
@@ -9,8 +9,6 @@
               %div{"plangular-icon" => "play", class: "icon icon-gray"}
             %a.img{:href => "", "ng-click" => "player.pause()", "ng-show" => "player.playing == track"}
               %div{"plangular-icon" => "pause", class: "icon icon-gray"}
-            %a.img{:href => "", "ng-click" => "player.next()"}
-              %div{"plangular-icon" => "next", class: "icon icon-gray"}
             .bd
               %p {{ track.user.username }}
               %a{"ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
