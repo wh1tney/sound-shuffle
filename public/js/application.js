@@ -2,8 +2,6 @@
 
 $(function(){
 
-  var nextTrackId = null;
-
   // ----- EVENT HANDLERS
 
   function bindEvents() {
@@ -37,8 +35,8 @@ $(function(){
       data: {'faves': res},
       dataType: 'json'
     }).done(function(response) {
-        loadPlayer(response);
         arrangeViews();
+        redirectToRadio();
     }).fail(function() {
         console.log("ajax fail");
     });
@@ -48,10 +46,8 @@ $(function(){
     $('#top').remove();
   }
 
-  function loadPlayer(tracks) {
-    // nextTrackId = tracks["0"].track_id;
-    // $('.player').attr("data-src", nextTrackId);
-    $('.player').css('display', 'initial');
+  function redirectToRadio() {
+    window.location.href = "/favorites";
   }
 
   bindEvents();
