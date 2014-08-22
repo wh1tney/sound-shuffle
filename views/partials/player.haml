@@ -11,5 +11,3 @@
             %p{"ng-show" => "player.playing == track"} {{ track.user.username }}
             %a{"ng-show" => "player.playing == track", "ng-href" => "{{ track.permalink_url }}"} {{ track.title }}
           %small{"ng-show" => "player.playing == track"} {{ currentTime | playTime }} | {{ duration | playTime }}
-
--#            %div{"plangular-icon" => "play", class: "icon icon-gray"}
