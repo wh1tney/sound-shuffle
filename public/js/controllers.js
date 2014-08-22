@@ -4,10 +4,7 @@ plangularController.controller('tracksController', function($scope, $sce) {
 
   $scope.tracks = [
     {
-      src:['https://soundcloud.com/soulection/tom-misch-the-journey']
-    },
-    {
-      src:['https://soundcloud.com/imkuma/elizabeth']
+      src:['https://soundcloud.com/soulection/tom-misch-the-journey', 'https://soundcloud.com/imkuma/elizabeth']
     }
   ]
 });
