@@ -8,7 +8,7 @@ class Application < Sinatra::Base
 
   get "/favorites" do
     tracks = Track.all
-    haml :'partials/player', locals: {tracks: tracks}
+    haml :'partials/player', locals: {tracks: tracks.shuffle}
   end
 
   post "/favorites" do
